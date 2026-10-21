@@ -1,6 +1,7 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import netlify from '@astrojs/netlify';
+import { unified } from '@astrojs/markdown-remark';
 
 import tailwindcss from '@tailwindcss/vite';
 import rehypeClassNames from 'rehype-class-names';
@@ -10,37 +11,50 @@ import icon from 'astro-icon';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
+  compressHTML: true,
+  env: {
+    schema: {
+      DATABASE_URL: envField.string({ context: 'server', access: 'secret' }),
+      DATABASE_SSL: envField.boolean({
+        context: 'server',
+        access: 'secret',
+        default: false,
+      }),
+    },
+  },
   adapter: netlify(),
   vite: {
     plugins: [tailwindcss()],
   },
   markdown: {
-    rehypePlugins: [
-      [
-        rehypeClassNames,
-        {
-          p: 'text-base/7 md:text-lg/9 text-left sm:text-justify mb-6',
-          a: 'text-rose-600 hover:text-rose-800 wrap-anywhere',
-          h1: 'text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6',
-          h2: 'text-xl sm:text-2xl md:text-3xl font-serif font-bold mb-6',
-          h3: 'text-lg md:text-[1.5rem] font-serif font-bold mb-4',
-          h4: 'text-lg md:text-xl font-serif font-bold mb-2',
-          h5: 'text-base md:text-lg font-serif font-bold mb-2',
-          h6: 'text-sm md:text-base font-serif font-bold mb-2',
-          ul: 'list-disc pl-6',
-          ol: 'list-decimal pl-6',
-          li: 'text-base/7 md:text-lg/9 text-left sm:text-justify',
-          pre: 'p-4 font-mono bg-black/5 overflow-x-auto mb-6',
-          table:
-            'w-full border-collapse mb-6 overflow-x-auto text-sm md:text-base',
-          thead: 'bg-black/5 dark:bg-white/10',
-          th: 'border border-black/10 dark:border-white/10 px-4 py-2 text-left font-semibold text-black/90 dark:text-white/90',
-          td: 'border border-black/10 dark:border-white/10 px-4 py-2 text-black/80 dark:text-white/80',
-          tbody: 'bg-white dark:bg-transparent',
-          'tr:nth-child(even)': 'bg-black/5 dark:bg-white/5', // striped rows
-        },
+    processor: unified({
+      rehypePlugins: [
+        [
+          rehypeClassNames,
+          {
+            p: 'text-base/7 md:text-lg/9 text-left sm:text-justify mb-6',
+            a: 'text-rose-600 hover:text-rose-800 wrap-anywhere',
+            h1: 'text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-6',
+            h2: 'text-xl sm:text-2xl md:text-3xl font-serif font-bold mb-6',
+            h3: 'text-lg md:text-[1.5rem] font-serif font-bold mb-4',
+            h4: 'text-lg md:text-xl font-serif font-bold mb-2',
+            h5: 'text-base md:text-lg font-serif font-bold mb-2',
+            h6: 'text-sm md:text-base font-serif font-bold mb-2',
+            ul: 'list-disc pl-6',
+            ol: 'list-decimal pl-6',
+            li: 'text-base/7 md:text-lg/9 text-left sm:text-justify',
+            pre: 'p-4 font-mono bg-black/5 overflow-x-auto mb-6',
+            table:
+              'w-full border-collapse mb-6 overflow-x-auto text-sm md:text-base',
+            thead: 'bg-black/5 dark:bg-white/10',
+            th: 'border border-black/10 dark:border-white/10 px-4 py-2 text-left font-semibold text-black/90 dark:text-white/90',
+            td: 'border border-black/10 dark:border-white/10 px-4 py-2 text-black/80 dark:text-white/80',
+            tbody: 'bg-white dark:bg-transparent',
+            'tr:nth-child(even)': 'bg-black/5 dark:bg-white/5', // striped rows
+          },
+        ],
       ],
-    ],
+    }),
     shikiConfig: {
       theme: 'catppuccin-macchiato',
     },

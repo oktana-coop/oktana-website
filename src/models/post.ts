@@ -1,10 +1,10 @@
-import { z } from 'astro:content';
+import { z } from 'astro/zod';
 
 export const postSchema = z.object({
   slug: z.string(),
   title: z.string(),
   description: z.string(),
-  image: z.string().url().optional(),
+  image: z.url().optional(),
   status: z.enum(['unstarted', 'draft', 'published']).default('unstarted'),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),

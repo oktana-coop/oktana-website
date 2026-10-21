@@ -23,12 +23,17 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
     'unpublished',
   ] as ExtendedStatus[];
 
+  const sortDate = ({ data }: CollectionEntry<'blog'>) =>
+    (data.publishedAt ?? data.updatedAt).getTime();
+
   return statusPaths.flatMap((status) => {
-    const filteredPosts = allBlogPostEntries.filter((post) =>
-      status === 'unpublished'
-        ? post.data.status !== 'published'
-        : post.data.status === status
-    );
+    const filteredPosts = allBlogPostEntries
+      .filter((post) =>
+        status === 'unpublished'
+          ? post.data.status !== 'published'
+          : post.data.status === status
+      )
+      .sort((a, b) => sortDate(b) - sortDate(a));
 
     return paginate(filteredPosts, {
       params: { status },
