@@ -21,6 +21,23 @@ These are the basic commands used for development:
 | `npm run build`   | Build your production site to `./dist/`      |
 | `npm run preview` | Preview your build locally, before deploying |
 
+### Pages and Routing
+
+Astro is opinionated in how you add routes, so it's good to familiarize with [file-based routing](https://docs.astro.build/en/guides/routing/) if you want to add a new page.
+
+### Content & Blog
+
+Astro [Content Collections](https://docs.astro.build/en/guides/content-collections/) are used for defining and loading the blog posts.
+
+### Email Subscriptions & Database Connection
+
+In order for the subscribe/unsubscribe functionality to work, the following environment variables need to be set:
+
+- `DATABASE_URL`: The PostgreSQL database connection string
+- `DATABASE_SSL`: A boolean value that instructs whether to use SSL or not when connecting to the database
+
+These are already set in the deployed version of the app. In development, you'll need to create a `.env` file that includes these variables.
+
 ### Testing
 
 End-to-end tests use [Playwright](https://playwright.dev/), running against the production build. Download Playwright's Chromium once:
@@ -44,23 +61,6 @@ npm run test:e2e:ui
 Test files live in `e2e/`. Results (HTML report, failure screenshots, traces) are written to `e2e-results/`.
 
 Server-rendered routes (the subscribe API and the unsubscribe page) are not part of the static build the tests run against, so the tests mock the subscribe API and don't cover unsubscribing.
-
-### Pages and Routing
-
-Astro is opinionated in how you add routes, so it's good to familiarize with [file-based routing](https://docs.astro.build/en/guides/routing/) if you want to add a new page.
-
-### Content & Blog
-
-Astro [Content Collections](https://docs.astro.build/en/guides/content-collections/) are used for defining and loading the blog posts.
-
-### Email Subscriptions & Database Connection
-
-In order for the subscribe/unscubscribe functionality to work, the following environment variables need to be set:
-
-- `DATABASE_URL`: The PostgreSQL database connection string
-- `DATABASE_SSL`: A boolean value that instructs whether to use SSL or not when connecting to the database
-
-These are already set in the deployed version of the app. In development, you'll need to create a `.env` file that includes these variables.
 
 ## Deployment
 
