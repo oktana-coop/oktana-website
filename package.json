@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettify": "prettier --write --config .prettierrc --ignore-unknown"
+    "prettify": "prettier --write --config .prettierrc --ignore-unknown",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@astrojs/netlify": "^6.5.9",
@@ -19,8 +21,10 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@types/pg": "^8.15.5",
     "prettier": "^3.6.2",
-    "prettier-plugin-astro": "^1.1.0"
+    "prettier-plugin-astro": "^1.1.0",
+    "serve": "^14.2.6"
   }
 }
