@@ -1,7 +1,7 @@
 ---
 slug: opening-the-pensieve-web-exporting-for-allume
 title: 'Opening the Pensieve: Web Exporting for Allume'
-description: 'Thinking in private and in public. Introducing our web exporting tool for Allume.'
+description: 'Introducing our web exporting tool for Allume. Along the way, we explore how tools for thought can represent and structure ideas and knowledge better, and also the tension between thinking in private and in public.'
 status: 'published'
 createdAt: '2026-11-17'
 updatedAt: '2026-11-17'
