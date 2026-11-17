@@ -10,6 +10,10 @@ Blog posts are written in Markdown and are located in `content/blog`. Just add a
 
 When updating blog posts, it's good to set the updated-at date manually in the metadata (this hasn't yet been automated).
 
+### Images and Videos
+
+Put a post's media in `public/assets/<post-slug>/`. Add `class="wide"` to a `<figure>` to make it break out of the text column, and `class="bare"` to remove the border around its media (they can be combined).
+
 ## Development
 
 These are the basic commands used for development:

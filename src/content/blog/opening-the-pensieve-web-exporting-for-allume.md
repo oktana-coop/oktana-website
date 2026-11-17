@@ -26,7 +26,7 @@ We don\'t want to claim that Allume\'s philosophy and its underlying principles,
 
 One of the core assumptions behind Allume is that human thought is inherently multimedia (e.g. it\'s never just text or just images and it uses input from multiple senses and functions) and that the primary reasons this is not expressed properly in digital tools has been historical and constrained by economic factors [^6]. This has recently changed with the advent of canvas tools which allow users to put different types of media side by side and therefore are better aligned to how our mind works, starting in design tools (e.g. Figma) but increasingly expanding in other domains. This is especially important for the process of ideation, where ideas are not yet fully developed, even if the end artifact is a single-media one (e.g. plain text).
 
-<figure>
+<figure class="wide">
   <img
     src="/assets/opening-the-pensieve-web-exporting-for-allume/allume-multi-media.png"
     alt="Multiple media types in Allume"
@@ -44,7 +44,7 @@ Another core idea behind Allume is that there is a powerful part of human brain 
 
 The computer, as a dynamic medium, can display and manage changing content, be interactive and adaptive to input, and in general offer flexibility that hasn\'t been possible with static media like paper. This dynamic nature enables workflows that allow gradually evolving an artifact from an initial idea to a polished or published artifact, potentially leveraging and composing a pipeline of tools within the same medium. To make it more concrete, when writing an essay, one could do the brainstorming, ideation and initial sketches of it in a tool like Allume or Obsidian, then take it to a tool that is more specialized in writing like v2, and then potentially to another one that\'s specialized in styling and publishing. Crucially, when it comes to formats, there is a tension between ones that facilitate ideation and those that are more suitable to publishing or long-term persistence. Allume has been thoughtfully designed to allow for this continuous evolution of ideas. For example, it is a deliberate design decision that the user can start adding content without putting a title on it, which is rooted in the idea that naming is an action or a milestone that comes with understanding and elucidation. Along similar lines, it makes it really easy to restructure content (for example, group existing cards within a board) so that the user can refine their thinking. By grouping, linking and annotating as content gets added and curated, structure _emerges_ instead of being predefined.
 
-<figure>
+<figure class="wide">
   <video controls preload="metadata" playsinline width="2560" height="1440">
     <source src="/assets/opening-the-pensieve-web-exporting-for-allume/allume-create-board-from-cards.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -54,7 +54,7 @@ The computer, as a dynamic medium, can display and manage changing content, be i
 
 Ideas and knowledge can\'t be divided and organized neatly in a hierarchy [^9], and yet there are times where hierarchies help us organize our thoughts, so there is a tension at play here. The way Allume resolves this tension is using [linked cards](https://allume.com/memos/2022-09-linked-cards/ 'linked cards'), which allow the user to connect boards and cards living in different corners of their thinking space. Linked cards are identical and tied together by locations. All linked cards are equal in rank; there's no "original" card. And as the spatial component is core to Allume, we can think of navigating between linked cards as location switching [^10]. Linked cards enable the user to _break out of purely hierarchical structures_ and in practice this often results in creating [heterarchies](https://en.wikipedia.org/wiki/Heterarchy 'heterarchies'), where content is organized through different, equally legitimate contexts. The structures created can become complex but, using contextual menus and a slick animation, the app ensures that the sense of orientation is not lost and that context switching is seamless.
 
-<figure>
+<figure class="wide">
   <video controls preload="metadata" playsinline width="2560" height="1440">
     <source src="/assets/opening-the-pensieve-web-exporting-for-allume/allume-linked-cards-navigation.mp4" type="video/mp4">
     Your browser does not support the video tag.
