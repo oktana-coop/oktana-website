@@ -28,6 +28,8 @@ export default defineConfig({
   },
   markdown: {
     processor: unified({
+      // `---` → em dash (—), `--` → en dash (–).
+      smartypants: { dashes: 'oldschool' },
       rehypePlugins: [
         [
           rehypeClassNames,
